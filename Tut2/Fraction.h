@@ -6,7 +6,7 @@
 		int denom;		// The denominator of the fraction
 
 	public:
-		Fraction();
+		Fraction(int numerator, int denominator);
 		~Fraction();
 
 		Fraction add(Fraction other);
