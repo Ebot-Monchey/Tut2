@@ -5,7 +5,7 @@
 /*
  * Creates a new Fraction object with the given arguments. The denominator defaults to 1 and the numerator to 0.
  */
-Fraction::Fraction(int numerator = 0, int denominator = 1) {
+Fraction::Fraction(int numerator, int denominator) {
 	this->numer = numerator;
 	this->denom = denominator;
 }
@@ -25,22 +25,22 @@ Fraction Fraction::add(Fraction other) {
 }
 
 /*
-* Subtracts another fraction from this fraction and returns a new Fraction object containing the result.
-*/
+ * Subtracts another fraction from this fraction and returns a new Fraction object containing the result.
+ */
 Fraction Fraction::subtract(Fraction other) {
 	return Fraction(this->numer*other.denom - other.numer*this->denom, this->denom*other.denom);
 }
 
 /*
-* Multiplies this fraction by another fraction and returns a new Fraction object containing the result.
-*/
+ * Multiplies this fraction by another fraction and returns a new Fraction object containing the result.
+ */
 Fraction Fraction::multiply(Fraction other) {
 	return Fraction(this->numer*other.numer, this->denom*other.denom);
 }
 
 /*
-* Divides this fraction by another fraction and returns a new Fraction object containing the result.
-*/
+ * Divides this fraction by another fraction and returns a new Fraction object containing the result.
+ */
 Fraction Fraction::divide(Fraction other) {
 	return Fraction(this->numer*other.denom, this->denom*other.numer);
 }
@@ -63,4 +63,32 @@ void Fraction::print() {
 		}
 		std::cout << numer%denom << "/" << denom;
 	}
+}
+
+/*
+ * Adds another fraction to this fraction and returns a new Fraction object containing the result.
+ */
+Fraction Fraction::operator+(Fraction other) {
+	return Fraction(this->numer*other.denom + other.numer*this->denom, this->denom*other.denom);
+}
+
+/*
+ * Subtracts another fraction from this fraction and returns a new Fraction object containing the result.
+ */
+Fraction Fraction::operator-(Fraction other) {
+	return Fraction(this->numer*other.denom - other.numer*this->denom, this->denom*other.denom);
+}
+
+/*
+ * Multiplies this fraction by another fraction and returns a new Fraction object containing the result.
+ */
+Fraction Fraction::operator*(Fraction other) {
+	return Fraction(this->numer*other.numer, this->denom*other.denom);
+}
+
+/*
+ * Divides this fraction by another fraction and returns a new Fraction object containing the result.
+ */
+Fraction Fraction::operator/(Fraction other) {
+	return Fraction(this->numer*other.denom, this->denom*other.numer);
 }
