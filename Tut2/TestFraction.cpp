@@ -1,11 +1,11 @@
-#include <cstdio>
+#include <iostream>
 #include "Fraction.h"
 
 int main() {
-	Fraction num1(2, 3);
+	Fraction num1 = read();
 	Fraction num2(1, 3);
-	Fraction ans = num1 / num2;
+	Fraction ans = num1 + num2;
 	ans.print();
-	std::getchar();
+	system("pause");
 	return 0;
 }

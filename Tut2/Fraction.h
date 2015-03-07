@@ -26,4 +26,6 @@
 
 		void print();
 	};
+
+	Fraction read();
 #endif

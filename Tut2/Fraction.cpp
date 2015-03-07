@@ -6,8 +6,8 @@
  * Creates a new Fraction object with the given arguments. The denominator defaults to 1 and the numerator to 0.
  */
 Fraction::Fraction(int numerator, int denominator) {
-	this->numer = numerator;
-	this->denom = denominator;
+	numer = numerator;
+	denom = denominator;
 }
 
 /*
@@ -49,28 +49,28 @@ void Fraction::setDenominator(int denominator) {
  * Adds another fraction to this fraction and returns a new Fraction object containing the result.
  */
 Fraction Fraction::add(Fraction other) {
-	return Fraction(this->numer*other.denom + other.numer*this->denom, this->denom*other.denom);
+	return Fraction(numer*other.denom + other.numer*denom, denom*other.denom);
 }
 
 /*
  * Subtracts another fraction from this fraction and returns a new Fraction object containing the result.
  */
 Fraction Fraction::subtract(Fraction other) {
-	return Fraction(this->numer*other.denom - other.numer*this->denom, this->denom*other.denom);
+	return Fraction(numer*other.denom - other.numer*denom, denom*other.denom);
 }
 
 /*
  * Multiplies this fraction by another fraction and returns a new Fraction object containing the result.
  */
 Fraction Fraction::multiply(Fraction other) {
-	return Fraction(this->numer*other.numer, this->denom*other.denom);
+	return Fraction(numer*other.numer, denom*other.denom);
 }
 
 /*
  * Divides this fraction by another fraction and returns a new Fraction object containing the result.
  */
 Fraction Fraction::divide(Fraction other) {
-	return Fraction(this->numer*other.denom, this->denom*other.numer);
+	return Fraction(numer*other.denom, denom*other.numer);
 }
 
 /*
@@ -97,26 +97,40 @@ void Fraction::print() {
  * Adds another fraction to this fraction and returns a new Fraction object containing the result.
  */
 Fraction Fraction::operator+(Fraction other) {
-	return Fraction(this->numer*other.denom + other.numer*this->denom, this->denom*other.denom);
+	return Fraction(numer*other.denom + other.numer*denom, denom*other.denom);
 }
 
 /*
  * Subtracts another fraction from this fraction and returns a new Fraction object containing the result.
  */
 Fraction Fraction::operator-(Fraction other) {
-	return Fraction(this->numer*other.denom - other.numer*this->denom, this->denom*other.denom);
+	return Fraction(numer*other.denom - other.numer*denom, denom*other.denom);
 }
 
 /*
  * Multiplies this fraction by another fraction and returns a new Fraction object containing the result.
  */
 Fraction Fraction::operator*(Fraction other) {
-	return Fraction(this->numer*other.numer, this->denom*other.denom);
+	return Fraction(numer*other.numer, denom*other.denom);
 }
 
 /*
  * Divides this fraction by another fraction and returns a new Fraction object containing the result.
  */
 Fraction Fraction::operator/(Fraction other) {
-	return Fraction(this->numer*other.denom, this->denom*other.numer);
+	return Fraction(numer*other.denom, denom*other.numer);
+}
+
+/*
+ * Reads a fraction in the form of a mixed number from the keyboard.
+ */
+Fraction read() {
+	int mixed, numer, denom;
+	std::cout << "Enter the whole number part: ";
+	std::cin >> mixed;
+	std::cout << "Enter the numerator: ";
+	std::cin >> numer;
+	std::cout << "Enter the denominator: ";
+	std::cin >> denom;
+	return Fraction(mixed*denom + numer, denom);
 }
