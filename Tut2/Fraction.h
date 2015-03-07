@@ -9,6 +9,11 @@
 		Fraction(int numerator = 0, int denominator = 1);
 		~Fraction();
 
+		int getNumerator();
+		void setNumerator(int numerator);
+		int getDenominator();
+		void setDenominator(int denominator);
+
 		Fraction add(Fraction other);
 		Fraction subtract(Fraction other);
 		Fraction multiply(Fraction other);

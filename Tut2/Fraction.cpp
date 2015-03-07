@@ -18,6 +18,34 @@ Fraction::~Fraction() {
 }
 
 /*
+ * Gets the numerator part of the fraction.
+ */
+int Fraction::getNumerator() {
+	return numer;
+}
+
+/*
+ * Sets the numerator part of the fraction.
+ */
+void Fraction::setNumerator(int numerator) {
+	numer = numerator;
+}
+
+/*
+ * Gets the denominator part of the fraction.
+ */
+int Fraction::getDenominator() {
+	return denom;
+}
+
+/*
+ * Sets the denominator part of the fraction.
+ */
+void Fraction::setDenominator(int denominator) {
+	denom = denominator;
+}
+
+/*
  * Adds another fraction to this fraction and returns a new Fraction object containing the result.
  */
 Fraction Fraction::add(Fraction other) {
