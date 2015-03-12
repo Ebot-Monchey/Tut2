@@ -134,3 +134,48 @@ Fraction read() {
 	std::cin >> denom;
 	return Fraction(mixed*denom + numer, denom);
 }
+
+/*
+ * Overload << to handle output of Fraction class.
+ */
+std::ostream& operator<<(std::ostream& out, const Fraction& frac) {
+	if (frac.numer == 0) {
+		out << "0";
+	}
+	else if (frac.denom == 1) {
+		out << frac.numer;
+	}
+	else {
+		// Display in mixed form
+		int mixed = frac.numer / frac.denom;
+		if (mixed != 0) {
+			out << mixed << " ";
+		}
+		out << frac.numer%frac.denom << "/" << frac.denom;
+	}
+	return out;
+}
+
+/*
+* Overload >> to handle input of Fraction class.
+*/
+std::istream& operator>>(std::istream& in, Fraction& frac) {
+	int mixed, numer, denom;
+	char temp;		// Holds temporary characters
+	in >> noskipws >> mixed;	// Try to read in the whole number part
+	in >> temp;
+	if (temp == '/') {
+		numer = mixed;
+		mixed = 0;
+		in >> noskipws >> denom;
+	}
+	else {
+		// temp was a space so the whole number was in fact read in
+		in >> noskipws >> numer;
+		in >> noskipws >> temp;
+		in >> noskipws >> denom;
+	}
+	frac.numer = mixed*denom + numer;
+	frac.denom = denom;
+	return in;
+}

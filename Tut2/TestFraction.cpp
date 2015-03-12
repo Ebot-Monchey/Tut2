@@ -2,10 +2,12 @@
 #include "Fraction.h"
 
 int main() {
-	Fraction num1 = read();
+	cout << "Enter the fraction: ";
+	Fraction num1;
+	cin >> num1;
 	Fraction num2(1, 3);
 	Fraction ans = num1 + num2;
-	ans.print();
+	std::cout << ans;
 	system("pause");
 	return 0;
 }

@@ -1,5 +1,7 @@
 #ifndef FRACTION_H
 #define FRACTION_H
+#include <iostream>
+using namespace std;
 	class Fraction {
 	private:
 		int numer;		// The numerator of the fraction
@@ -25,6 +27,8 @@
 		Fraction operator/(Fraction other);
 
 		void print();
+		friend ostream& operator<<(ostream&, const Fraction&);
+		friend istream& operator>>(istream&, Fraction&);
 	};
 
 	Fraction read();
