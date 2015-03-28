@@ -6,6 +6,7 @@ using namespace std;
 	private:
 		int numer;		// The numerator of the fraction
 		int denom;		// The denominator of the fraction
+		void reduce();	// Reduces the fraction into its lowest equivalent form
 
 	public:
 		Fraction(int numerator = 0, int denominator = 1);

@@ -8,6 +8,7 @@
 Fraction::Fraction(int numerator, int denominator) {
 	numer = numerator;
 	denom = denominator;
+	reduce();
 }
 
 /*
@@ -178,4 +179,24 @@ std::istream& operator>>(std::istream& in, Fraction& frac) {
 	frac.numer = mixed*denom + numer;
 	frac.denom = denom;
 	return in;
+}
+
+/*
+ * Reduces the fraction to its lowest terms using the divisor algorithm to find the gcd.
+ */
+void Fraction::reduce() {
+	int dividend, divisor, quotient, remainder;
+	quotient = numer;
+	remainder = denom;
+
+	do {
+		dividend = quotient;
+		divisor = remainder;
+		quotient = dividend / divisor;
+		remainder = dividend % divisor;
+	} while (remainder != 0);
+
+	// divisor contains the gcd
+	numer /= divisor;
+	denom /= divisor;
 }
