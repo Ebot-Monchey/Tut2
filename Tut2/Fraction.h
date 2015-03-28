@@ -2,7 +2,7 @@
 #define FRACTION_H
 #include <iostream>
 using namespace std;
-	class Fraction {
+	class _declspec(dllexport) Fraction {
 	private:
 		int numer;		// The numerator of the fraction
 		int denom;		// The denominator of the fraction
@@ -27,5 +27,5 @@ using namespace std;
 		friend istream& operator>>(istream&, Fraction&);
 	};
 
-	Fraction read();
+	_declspec(dllexport) Fraction read();
 #endif

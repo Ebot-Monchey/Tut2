@@ -157,18 +157,21 @@ std::istream& operator>>(std::istream& in, Fraction& frac) {
  * Reduces the fraction to its lowest terms using the divisor algorithm to find the gcd.
  */
 void Fraction::reduce() {
-	int dividend, divisor, quotient, remainder;
-	quotient = numer;
-	remainder = denom;
+	if (numer == 0) {
+		denom = 1;
+	}
+	else {
+		int dividend, divisor, remainder;
+		divisor = numer > denom ? numer : denom;
+		remainder = numer > denom ? denom : numer;
 
-	do {
-		dividend = quotient;
-		divisor = remainder;
-		quotient = dividend / divisor;
-		remainder = dividend % divisor;
-	} while (remainder != 0);
-
-	// divisor contains the gcd
-	numer /= divisor;
-	denom /= divisor;
+		do {
+			dividend = divisor;
+			divisor = remainder;
+			remainder = dividend % divisor;
+		} while (remainder != 0);
+		// divisor contains the gcd
+		numer /= divisor;
+		denom /= divisor;
+	}
 }
