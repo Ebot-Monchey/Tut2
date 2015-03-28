@@ -17,11 +17,6 @@ using namespace std;
 		int getDenominator();
 		void setDenominator(int denominator);
 
-		Fraction add(Fraction other);
-		Fraction subtract(Fraction other);
-		Fraction multiply(Fraction other);
-		Fraction divide(Fraction other);
-
 		Fraction operator+(Fraction other);
 		Fraction operator-(Fraction other);
 		Fraction operator*(Fraction other);

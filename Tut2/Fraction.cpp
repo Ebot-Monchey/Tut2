@@ -47,34 +47,6 @@ void Fraction::setDenominator(int denominator) {
 }
 
 /*
- * Adds another fraction to this fraction and returns a new Fraction object containing the result.
- */
-Fraction Fraction::add(Fraction other) {
-	return Fraction(numer*other.denom + other.numer*denom, denom*other.denom);
-}
-
-/*
- * Subtracts another fraction from this fraction and returns a new Fraction object containing the result.
- */
-Fraction Fraction::subtract(Fraction other) {
-	return Fraction(numer*other.denom - other.numer*denom, denom*other.denom);
-}
-
-/*
- * Multiplies this fraction by another fraction and returns a new Fraction object containing the result.
- */
-Fraction Fraction::multiply(Fraction other) {
-	return Fraction(numer*other.numer, denom*other.denom);
-}
-
-/*
- * Divides this fraction by another fraction and returns a new Fraction object containing the result.
- */
-Fraction Fraction::divide(Fraction other) {
-	return Fraction(numer*other.denom, denom*other.numer);
-}
-
-/*
  * Prints the fraction in standard form.
  */
 void Fraction::print() {
